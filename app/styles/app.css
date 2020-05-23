@@ -109,13 +109,26 @@ span {
     display: none;
 }
 
-#sidebar.active .facebookD {
-    
-}
-
 #sidebar.active .sidebar-header img {
     visibility: hidden;
     position: fixed;
+}
+
+#sidebar.active .CTAs li a strong {
+    display: none;
+}
+
+#sidebar.active .CTAs li a {
+    bottom: 3rem;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    transition: all 0.5s;
+}
+
+#sidebar.active .CTAs li a i {
+    margin-left: .4rem;
+    margin-top: -.3rem;
 }
 
 #sidebar.active .sidebar-header strong {
@@ -222,6 +235,7 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
+
 a.facebookD {
     background: #3b5998;
     color: #fff;
@@ -267,8 +281,7 @@ a.googleD:hover {
     #sidebar.active {
         margin-left: 0 !important;
     }
-    #sidebar .sidebar-header h3, img,
-    #sidebar .CTAs {
+    #sidebar .sidebar-header h3, img {
         display: none;
     }
     #sidebar .sidebar-header strong {
@@ -307,5 +320,14 @@ a.googleD:hover {
     #sidebar ul.components .notifications {
         font-size: 0.80em;
     }
-    
+
+    #sidebar .CTAs li a strong {
+        display: none;
+        border-radius: 50%;
+        transition: all 0.5s;
+    }
+    #sidebar .CTAs li a {
+        border-radius: 50%;
+        transition: all 0.5s;
+    }
 }
