@@ -23,17 +23,15 @@
     <script>
 
         function getjobs() {
-            const http = new XMLHttpRequest()
-            const url = 'http://super-jobs-api.herokuapp.com/jobs/getalljobs'
-            http.open('GET', url)
-            http.setRequestHeader('Access-Control-Allow-Origin', '*')
-            http.send()
-
-            http.onreadystatechange = (e) => {
-                console.log(http.responseText)
-            }
+            fetch('https://super-jobs-api.herokuapp.com/jobs/getalljobs', { mode: 'no-cors' })
+                .then(response => {
+                    return response.json()
+                })
+                .then((data) => {
+                    resolve(data)
+                })
         }
-        
+
         function initMap() {
 
             const location = { lat: 28.693952, lng: -106.129851 }
@@ -86,7 +84,7 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm40ypN7aUdJd3H_B4WTtvovyW2Vz48Ws&callback=initMap"
         type="text/javascript">
-    </script>
+        </script>
 
     {{!-- <div class="line"></div> --}}
 </div>
