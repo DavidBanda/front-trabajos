@@ -1,0 +1,92 @@
+<!-- Page Content  -->
+<div id="content">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-light">
+                <i class="fas fa-bars mr-2"></i>
+                <span>Menu</span>
+            </button>
+
+            <div class="input-group ml-4">
+                <input type="text" class="form-control" placeholder="Buscar Trabajo" aria-label="Buscar Trabajo"
+                    aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-dark" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="map"></div>
+
+    <script>
+
+        function getjobs() {
+            const http = new XMLHttpRequest()
+            const url = 'http://super-jobs-api.herokuapp.com/jobs/getalljobs'
+            http.open('GET', url)
+            http.setRequestHeader('Access-Control-Allow-Origin', '*')
+            http.send()
+
+            http.onreadystatechange = (e) => {
+                console.log(http.responseText)
+            }
+        }
+        
+        function initMap() {
+
+            const location = { lat: 28.693952, lng: -106.129851 }
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: location
+            })
+
+            getjobs()
+
+            /*
+            var contentString = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+                '<div id="bodyContent">' +
+                '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+                'sandstone rock formation in the southern part of the ' +
+                'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
+                'south west of the nearest large town, Alice Springs; 450&#160;km ' +
+                '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
+                'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
+                'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
+                'Aboriginal people of the area. It has many springs, waterholes, ' +
+                'rock caves and ancient paintings. Uluru is listed as a World ' +
+                'Heritage Site.</p>' +
+                '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+                'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
+                '(last visited June 22, 2009).</p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            let marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            })
+
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+            */
+
+        }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm40ypN7aUdJd3H_B4WTtvovyW2Vz48Ws&callback=initMap"
+        type="text/javascript">
+    </script>
+
+    {{!-- <div class="line"></div> --}}
+</div>

@@ -5,8 +5,8 @@
  */
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body,
@@ -21,30 +21,30 @@ div,
 span,
 a,
 button {
-  font-family: 'Lato', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+    font-family: 'Lato', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
 }
 
 body {
-  background: #f3f3f3;
+    background: #f3f3f3;
 }
 
 a {
-  color: #016aba;
-  text-decoration: none;
+    color: #016aba;
+    text-decoration: none;
 }
 
 button {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 p {
-  line-height: 1.5;
-  margin-bottom: 15px;
+    line-height: 1.5;
+    margin-bottom: 15px;
 }
 
 @media only screen and (max-width: 919px) {
-  
+
 }
 
 a,
@@ -60,7 +60,7 @@ a:focus {
     background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -115,7 +115,7 @@ span {
 }
 
 #sidebar.active .CTAs li a strong {
-    display: none;
+    visibility: hidden;
 }
 
 #sidebar.active .CTAs li a {
@@ -123,7 +123,7 @@ span {
     border-radius: 50%;
     width: 3.5rem;
     height: 3.5rem;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 #sidebar.active .CTAs li a i {
@@ -206,6 +206,12 @@ a[aria-expanded="true"] {
 
 a[data-toggle="collapse"] {
     position: relative;
+}
+
+#map {
+    width: 100%;
+    min-height: 90%;
+    height: auto;
 }
 
 .dropdown-toggle::after {
@@ -321,13 +327,11 @@ a.googleD:hover {
         font-size: 0.80em;
     }
 
-    #sidebar .CTAs li a strong {
-        display: none;
+    /* #sidebar.active .CTAs li a {
+        bottom: 3rem;
         border-radius: 50%;
-        transition: all 0.5s;
-    }
-    #sidebar .CTAs li a {
-        border-radius: 50%;
-        transition: all 0.5s;
-    }
+        width: 3.5rem;
+        height: 3.5rem;
+        transition: all 0.3s;
+    } */
 }
