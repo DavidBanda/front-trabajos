@@ -164,6 +164,10 @@ span {
     padding: 10px !important;
 }
 
+#sidebar.active .carousel {
+    display: none;
+}
+
 #sidebar.active .dropdown-toggle::after {
     top: auto;
     bottom: 10px;
@@ -210,8 +214,39 @@ a[data-toggle="collapse"] {
 
 #map {
     width: 100%;
-    min-height: 90%;
+    min-height: 92%;
     height: auto;
+}
+
+.carousel-indicators li {
+    filter: invert(100%);    
+}
+
+.carousel-indicators .active {
+    filter: invert(100%);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
+
+.carousel-item img {
+    z-index: 0;
+    opacity: 0.5;
+    position: absolute;
+}
+
+.card-body {
+    z-index: 1;
+}
+
+.card-title, .card-text {
+    color: rgb(41, 45, 59);;
+}
+
+.card a {
+    margin-left: 2.5rem;
 }
 
 .dropdown-toggle::after {
