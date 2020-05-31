@@ -21,70 +21,79 @@
     <div id="map"></div>
 
     <script>
+        
+        /*
+        const getalljobs = async () => {
+            let settings = {
+                'method': 'GET',
+                'headers': {'Content-Type': 'application/json',
+                            'Connection': 'keep-alive',
+                            'Cache-Control': 'no-cache'},
+                mode: 'no-cors'
+            }
 
-        function getjobs() {
-            fetch('https://super-jobs-api.herokuapp.com/jobs/getalljobs', { mode: 'no-cors' })
-                .then(response => {
-                    return response.json()
-                })
-                .then((data) => {
-                    resolve(data)
-                })
+            let getjobs = await fetch('https://super-jobs-api.herokuapp.com/jobs/getalljobs', settings)
+            let getjsonjobs = await getjobs.json()
+            console.log(getjobs)
         }
+
+        getalljobs()
+        console.log('holas')
+        */
 
         function initMap() {
 
-            const location = { lat: 28.693952, lng: -106.129851 }
+            const locationCity = { lat: 28.693952, lng: -106.129851 }
             const map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 14,
-                center: location
+                center: locationCity
             })
 
-            getjobs()
+            const locationJob = [{ lat: 28.693952, lng: -106.129851 },
+                                { lat: 28.703952, lng: -106.119851 },
+                                { lat: 28.713952, lng: -106.139851 },
+                                { lat: 28.643952, lng: -106.109851 },
+                                { lat: 28.733952, lng: -106.149851 },
+                                { lat: 28.698417, lng: -106.129811 },
+                                { lat: 28.723545, lng: -106.118790 },
+                                { lat: 28.665735, lng: -106.106658},
+                                { lat: 28.633916, lng: -106.089935 },]
+                                
+            
+            for (let i = 0; i < 9; i++) {
+                let contentString = '<div id="content2">' +
+                    `<h1 id="firstHeading" class="firstHeading">Trabajo ${i}</h1>` +
+                    '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>' +
+                    '</div>';
 
-            /*
-            var contentString = '<div id="content">' +
-                '<div id="siteNotice">' +
-                '</div>' +
-                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-                '<div id="bodyContent">' +
-                '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-                'sandstone rock formation in the southern part of the ' +
-                'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
-                'south west of the nearest large town, Alice Springs; 450&#160;km ' +
-                '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
-                'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
-                'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
-                'Aboriginal people of the area. It has many springs, waterholes, ' +
-                'rock caves and ancient paintings. Uluru is listed as a World ' +
-                'Heritage Site.</p>' +
-                '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-                'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
-                '(last visited June 22, 2009).</p>' +
-                '</div>' +
-                '</div>';
+                let infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
 
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
+                let marker = new google.maps.Marker({
+                    position: locationJob[i],
+                    map: map,
+                })
 
-            let marker = new google.maps.Marker({
-                position: location,
-                map: map,
-            })
+                marker.addListener('click', function () {
+                    infowindow.open(map, marker);
+                    if (marker.getAnimation() !== null) {
+                        marker.setAnimation(null);
+                    } else {
+                        marker.setAnimation(google.maps.Animation.BOUNCE);
+                    }
+                });
+            }
 
-            marker.addListener('click', function () {
-                infowindow.open(map, marker);
-            });
-            */
+        } 
 
-        }
     </script>
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm40ypN7aUdJd3H_B4WTtvovyW2Vz48Ws&callback=initMap"
         type="text/javascript">
-        </script>
+    </script>
 
     {{!-- <div class="line"></div> --}}
+
 </div>
