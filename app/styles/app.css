@@ -245,8 +245,8 @@ a[data-toggle="collapse"] {
     color: rgb(41, 45, 59);;
 }
 
-.card a {
-    margin-left: 2.5rem;
+.card button {
+    margin-left: 3rem;
 }
 
 .dropdown-toggle::after {
