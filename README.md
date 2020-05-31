@@ -8,7 +8,7 @@ A short introduction of this app could easily go here.
 
 ![alt text](https://github.com/DavidBanda/front-trabajos/blob/master/public/assets/prev/preview%202.png)
 
-![alt text](https://github.com/DavidBanda/front-trabajos/blob/master/public/assets/prev/preview%202.png)
+![alt text](https://github.com/DavidBanda/front-trabajos/blob/master/public/assets/prev/preview%203.png)
 
 ## Prerequisites
 
